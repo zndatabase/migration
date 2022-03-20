@@ -3,12 +3,16 @@
 namespace ZnDatabase\Migration\Commands;
 
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
+use ZnDatabase\Base\Console\Traits\OverwriteDatabaseTrait;
 use ZnLib\Console\Symfony4\Helpers\OutputHepler;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class DownCommand extends BaseCommand
 {
+    
+    use OverwriteDatabaseTrait;
+    
     protected static $defaultName = 'db:migrate:down';
 
     protected function configure()
@@ -26,6 +30,10 @@ class DownCommand extends BaseCommand
     {
         $output->writeln('<fg=white># Migrate DOWN</>');
 
+        if (!$this->isContinue($input, $output)) {
+            return 0;
+        }
+        
         $historyCollection = $this->migrationService->allForDown();
         if (empty($historyCollection)) {
             $output->writeln(['', '<fg=magenta>- No applied migrations found! -</>', '']);

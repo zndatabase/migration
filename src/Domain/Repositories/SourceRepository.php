@@ -3,6 +3,7 @@
 namespace ZnDatabase\Migration\Domain\Repositories;
 
 use ZnCore\Base\Exceptions\InvalidConfigException;
+use ZnCore\Base\Helpers\FindFileHelper;
 use ZnCore\Base\Helpers\LoadHelper;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
@@ -44,7 +45,7 @@ class SourceRepository
 
     private static function scanDir($dir)
     {
-        $files = FileHelper::scanDir($dir);
+        $files = FindFileHelper::scanDir($dir);
         $classes = [];
         foreach ($files as $file) {
             $classNameClean = FileHelper::fileRemoveExt($file);

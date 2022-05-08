@@ -3,7 +3,8 @@
 namespace ZnDatabase\Migration\Domain\Repositories;
 
 use ZnCore\Base\Exceptions\InvalidConfigException;
-use ZnCore\Base\Helpers\FindFileHelper;
+use ZnCore\Base\Libs\FileSystem\Helpers\FilePathHelper;
+use ZnCore\Base\Libs\FileSystem\Helpers\FindFileHelper;
 use ZnCore\Base\Helpers\LoadHelper;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
@@ -37,7 +38,7 @@ class SourceRepository
         }
         $classes = [];
         foreach ($directories as $dir) {
-            $newClasses = self::scanDir(FileHelper::prepareRootPath($dir));
+            $newClasses = self::scanDir(FilePathHelper::prepareRootPath($dir));
             $classes = ArrayHelper::merge($classes, $newClasses);
         }
         return $classes;
@@ -48,7 +49,7 @@ class SourceRepository
         $files = FindFileHelper::scanDir($dir);
         $classes = [];
         foreach ($files as $file) {
-            $classNameClean = FileHelper::fileRemoveExt($file);
+            $classNameClean = FilePathHelper::fileRemoveExt($file);
             $entity = new MigrationEntity;
             $entity->className = 'Migrations\\' . $classNameClean;
             $entity->fileName = $dir . DIRECTORY_SEPARATOR . $classNameClean . '.php';

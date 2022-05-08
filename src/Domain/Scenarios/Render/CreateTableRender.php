@@ -4,6 +4,7 @@ namespace ZnDatabase\Migration\Domain\Scenarios\Render;
 
 use Zend\Code\Generator\FileGenerator;
 use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
+use ZnCore\Base\Libs\FileSystem\Helpers\FileStorageHelper;
 use ZnTool\Generator\Domain\Helpers\TemplateCodeHelper;
 use ZnTool\Package\Domain\Helpers\PackageHelper;
 
@@ -40,7 +41,7 @@ class CreateTableRender extends BaseRender
         $fileGenerator->setBody($code);
         $fileName = $this->getFileName();
 
-        FileHelper::save($fileName, $fileGenerator->generate());
+        FileStorageHelper::save($fileName, $fileGenerator->generate());
     }
 
     private function getFileName()

@@ -53,6 +53,8 @@ abstract class BaseCommand extends Command
     protected function runMigrate($collection, $method, OutputInterface $output)
     {
         $logWidget = new LogWidget($output);
+        $logWidget->setPretty(true);
+        $logWidget->setLineLength(64);
         /** @var MigrationEntity[] $collection */
         foreach ($collection as $migrationEntity) {
             $logWidget->start($migrationEntity->version);

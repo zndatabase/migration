@@ -3,6 +3,7 @@
 namespace ZnDatabase\Migration\Domain\Repositories;
 
 use ZnCore\Base\Exceptions\InvalidConfigException;
+use ZnCore\Base\Libs\App\Interfaces\ConfigManagerInterface;
 use ZnCore\Base\Libs\FileSystem\Helpers\FilePathHelper;
 use ZnCore\Base\Libs\FileSystem\Helpers\FindFileHelper;
 use ZnCore\Base\Helpers\LoadHelper;
@@ -17,16 +18,20 @@ class SourceRepository
 
     //use ConfigTrait;
 
-    public function __construct($mainConfigFile = null)
+    private $configManager;
+
+    public function __construct($mainConfigFile = null, ConfigManagerInterface $configManager)
     {
         $config = LoadHelper::loadConfig($mainConfigFile);
         //dd($_ENV['ELOQUENT_MIGRATIONS']);
         //$config = $this->loadConfig($mainConfigFile);
         $this->config = $config['migrate'] ?? [];
-        $this->config['directory'] = isset($this->config['directory']) ? $this->config['directory'] : DotEnv::get('ELOQUENT_MIGRATIONS', []);
+
+        $this->config['directory'] = isset($this->config['directory']) ? $this->config['directory'] : $configManager->get('ELOQUENT_MIGRATIONS');
         /*if(empty($this->config)) {
             throw new InvalidConfigException('Empty migrtion configuration!');
         }*/
+        $this->configManager = $configManager;
     }
 
     public function getAll()

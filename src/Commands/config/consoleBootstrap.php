@@ -7,6 +7,8 @@ use ZnCore\Base\Libs\FileSystem\Helpers\FilePathHelper;
 
 DotEnv::init();
 
+\ZnCore\Base\Helpers\DeprecateHelper::hardThrow();
+
 $kernel = new Kernel('console');
 $container = $kernel->getContainer();
 $bundleLoader = new BundleLoader([], ['i18next', 'container', 'console', 'migration']);

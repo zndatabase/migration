@@ -67,5 +67,4 @@ abstract class BaseCommand extends Command
             //call_user_func($outputInfoCallback, $migrationEntity->version);
         }
     }
-
 }

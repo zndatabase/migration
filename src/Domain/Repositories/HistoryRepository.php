@@ -4,6 +4,7 @@ namespace ZnDatabase\Migration\Domain\Repositories;
 
 use Illuminate\Container\Container;
 use Illuminate\Database\Schema\Blueprint;
+use Psr\Container\ContainerInterface;
 use ZnCore\Base\Helpers\ClassHelper;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 use ZnCore\Domain\Interfaces\Libs\EntityManagerInterface;
@@ -25,7 +26,7 @@ class HistoryRepository extends BaseEloquentRepository
         return MigrationEntity::class;
     }
 
-    public function __construct(EntityManagerInterface $em, Manager $capsule, Container $container)
+    public function __construct(EntityManagerInterface $em, Manager $capsule, ContainerInterface $container)
     {
         parent::__construct($em, $capsule);
         $this->container = $container;
@@ -86,6 +87,7 @@ class HistoryRepository extends BaseEloquentRepository
 
         //$connection = $migration->getConnection();
         $connection = $schema->getConnection();
+
         $connectionName = $connection->getConfig('name');
 
         // todo: begin transaction

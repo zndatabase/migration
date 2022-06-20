@@ -2,7 +2,7 @@
 
 namespace ZnDatabase\Migration\Domain\Services;
 
-use ZnCore\Domain\Base\BaseService;
+use ZnCore\Base\Libs\Service\Base\BaseService;
 use ZnDatabase\Migration\Domain\Interfaces\Repositories\GenerateRepositoryInterface;
 use ZnDatabase\Migration\Domain\Interfaces\Services\GenerateServiceInterface;
 use ZnDatabase\Migration\Domain\Scenarios\Render\CreateTableRender;

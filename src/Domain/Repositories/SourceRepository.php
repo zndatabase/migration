@@ -3,14 +3,12 @@
 namespace ZnDatabase\Migration\Domain\Repositories;
 
 use ZnCore\Base\Exceptions\InvalidConfigException;
+use ZnCore\Base\Helpers\LoadHelper;
+use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 use ZnCore\Base\Libs\ConfigManager\Interfaces\ConfigManagerInterface;
 use ZnCore\Base\Libs\FileSystem\Helpers\FilePathHelper;
 use ZnCore\Base\Libs\FileSystem\Helpers\FindFileHelper;
-use ZnCore\Base\Helpers\LoadHelper;
-use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
-use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
-use ZnCore\Base\Libs\DotEnv\DotEnv;
-use ZnDatabase\Fixture\Domain\Traits\ConfigTrait;
+use ZnCore\Base\Libs\Store\Helpers\StoreHelper;
 use ZnDatabase\Migration\Domain\Entities\MigrationEntity;
 
 class SourceRepository
@@ -22,7 +20,8 @@ class SourceRepository
 
     public function __construct($mainConfigFile = null, ConfigManagerInterface $configManager)
     {
-        $config = LoadHelper::loadConfig($mainConfigFile);
+        $config = StoreHelper::load($_ENV['ROOT_DIRECTORY'] . '/' . $mainConfigFile);
+//        $config = LoadHelper::loadConfig($mainConfigFile);
         //dd($_ENV['ELOQUENT_MIGRATIONS']);
         //$config = $this->loadConfig($mainConfigFile);
         $this->config = $config['migrate'] ?? [];
@@ -37,7 +36,7 @@ class SourceRepository
     public function getAll()
     {
         $directories = $this->config['directory'];
-        if(empty($directories)) {
+        if (empty($directories)) {
             return [];
             throw new InvalidConfigException('Empty directories configuration for migrtion!');
         }

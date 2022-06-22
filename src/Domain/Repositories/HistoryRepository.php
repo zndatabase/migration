@@ -7,7 +7,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Psr\Container\ContainerInterface;
 use ZnCore\Base\Helpers\ClassHelper;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
-use ZnCore\Base\Libs\EntityManager\Interfaces\EntityManagerInterface;
+use ZnCore\Domain\EntityManager\Interfaces\EntityManagerInterface;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentRepository;
 use ZnDatabase\Eloquent\Domain\Capsule\Manager;
 use ZnDatabase\Migration\Domain\Entities\MigrationEntity;

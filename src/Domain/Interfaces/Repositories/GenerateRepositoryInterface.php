@@ -2,7 +2,7 @@
 
 namespace ZnDatabase\Migration\Domain\Interfaces\Repositories;
 
-use ZnCore\Base\Libs\Domain\Interfaces\GetEntityClassInterface;
+use ZnCore\Domain\Domain\Interfaces\GetEntityClassInterface;
 
 interface GenerateRepositoryInterface extends GetEntityClassInterface
 {

@@ -3,7 +3,7 @@
 namespace ZnDatabase\Migration\Domain\Scenarios\Render;
 
 use Zend\Code\Generator\FileGenerator;
-use ZnCore\Base\Libs\FileSystem\Helpers\FileStorageHelper;
+use ZnCore\Base\FileSystem\Helpers\FileStorageHelper;
 use ZnTool\Generator\Domain\Helpers\TemplateCodeHelper;
 use ZnTool\Package\Domain\Helpers\PackageHelper;
 

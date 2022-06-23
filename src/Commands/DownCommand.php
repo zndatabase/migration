@@ -2,7 +2,7 @@
 
 namespace ZnDatabase\Migration\Commands;
 
-use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
+use ZnCore\Base\Libs\Arr\Helpers\ArrayHelper;
 use ZnDatabase\Base\Console\Traits\OverwriteDatabaseTrait;
 use ZnLib\Console\Symfony4\Helpers\OutputHepler;
 use Symfony\Component\Console\Input\InputInterface;

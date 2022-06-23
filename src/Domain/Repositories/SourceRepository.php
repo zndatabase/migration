@@ -2,9 +2,9 @@
 
 namespace ZnDatabase\Migration\Domain\Repositories;
 
-use ZnCore\Base\Exceptions\InvalidConfigException;
+use ZnCore\Contract\Common\Exceptions\InvalidConfigException;
 use ZnCore\Base\Helpers\LoadHelper;
-use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
+use ZnCore\Base\Libs\Arr\Helpers\ArrayHelper;
 use ZnCore\Base\Libs\ConfigManager\Interfaces\ConfigManagerInterface;
 use ZnCore\Base\Libs\FileSystem\Helpers\FilePathHelper;
 use ZnCore\Base\Libs\FileSystem\Helpers\FindFileHelper;

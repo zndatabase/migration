@@ -5,7 +5,7 @@ namespace ZnDatabase\Migration\Domain\Repositories;
 use Illuminate\Container\Container;
 use Illuminate\Database\Schema\Blueprint;
 use Psr\Container\ContainerInterface;
-use ZnCore\Base\Helpers\ClassHelper;
+use ZnCore\Base\Libs\Instance\Helpers\ClassHelper;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 use ZnCore\Domain\EntityManager\Interfaces\EntityManagerInterface;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentRepository;

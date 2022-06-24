@@ -22,7 +22,6 @@ class SourceRepository
     {
         $config = StoreHelper::load($_ENV['ROOT_DIRECTORY'] . '/' . $mainConfigFile);
 //        $config = LoadHelper::loadConfig($mainConfigFile);
-        //dd($_ENV['ELOQUENT_MIGRATIONS']);
         //$config = $this->loadConfig($mainConfigFile);
         $this->config = $config['migrate'] ?? [];
 

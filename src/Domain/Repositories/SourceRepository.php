@@ -8,7 +8,7 @@ use ZnCore\Base\Arr\Helpers\ArrayHelper;
 use ZnCore\Base\ConfigManager\Interfaces\ConfigManagerInterface;
 use ZnCore\Base\FileSystem\Helpers\FilePathHelper;
 use ZnCore\Base\FileSystem\Helpers\FindFileHelper;
-use ZnCore\Base\Store\Helpers\StoreHelper;
+use ZnLib\Components\Store\Helpers\StoreHelper;
 use ZnDatabase\Migration\Domain\Entities\MigrationEntity;
 
 class SourceRepository

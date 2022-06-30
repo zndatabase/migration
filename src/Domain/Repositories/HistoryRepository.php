@@ -125,7 +125,7 @@ class HistoryRepository extends BaseEloquentRepository
 //        return $migration;
     }
 
-    public function all($connectionName = 'default')
+    public function findAll($connectionName = 'default')
     {
 
         $connections = $this->getCapsule()->getConnectionNames();

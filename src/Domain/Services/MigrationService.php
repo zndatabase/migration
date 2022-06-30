@@ -40,7 +40,7 @@ class MigrationService
          */
 
         $sourceCollection = $this->sourceRepository->getAll();
-        $historyCollection = $this->historyRepository->all();
+        $historyCollection = $this->historyRepository->findAll();
         $filteredCollection = $this->historyRepository->filterVersion($sourceCollection, $historyCollection);
         ArrayHelper::multisort($filteredCollection, 'version');
         return $filteredCollection;
@@ -61,7 +61,7 @@ class MigrationService
          * выпонить down
          */
 
-        $historyCollection = $this->historyRepository->all();
+        $historyCollection = $this->historyRepository->findAll();
         $sourceCollection = $this->sourceRepository->getAll();
         $sourceCollectionIndexed = ArrayHelper::index($sourceCollection, 'version');
         foreach ($historyCollection as $migrationEntity) {

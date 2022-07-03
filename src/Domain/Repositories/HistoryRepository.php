@@ -2,7 +2,7 @@
 
 namespace ZnDatabase\Migration\Domain\Repositories;
 
-use Illuminate\Container\Container;
+use ZnCore\Base\Container\Libs\Container;
 use Illuminate\Database\Schema\Blueprint;
 use Psr\Container\ContainerInterface;
 use ZnCore\Base\Instance\Helpers\ClassHelper;

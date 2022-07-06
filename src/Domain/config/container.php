@@ -1,7 +1,7 @@
 <?php
 
 use ZnCore\Instance\Helpers\InstanceHelper;
-use ZnCore\Base\ConfigManager\Interfaces\ConfigManagerInterface;
+use ZnCore\ConfigManager\Interfaces\ConfigManagerInterface;
 use ZnDatabase\Migration\Domain\Repositories\SourceRepository;
 
 return [

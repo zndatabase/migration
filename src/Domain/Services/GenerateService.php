@@ -2,11 +2,11 @@
 
 namespace ZnDatabase\Migration\Domain\Services;
 
-use ZnCore\Domain\Service\Base\BaseService;
+use ZnCore\Service\Base\BaseService;
 use ZnDatabase\Migration\Domain\Interfaces\Repositories\GenerateRepositoryInterface;
 use ZnDatabase\Migration\Domain\Interfaces\Services\GenerateServiceInterface;
 use ZnDatabase\Migration\Domain\Scenarios\Render\CreateTableRender;
-use ZnCore\Base\Instance\Helpers\ClassHelper;
+use ZnCore\Instance\Helpers\ClassHelper;
 
 class GenerateService extends BaseService implements GenerateServiceInterface
 {

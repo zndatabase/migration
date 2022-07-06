@@ -2,8 +2,8 @@
 
 namespace ZnDatabase\Migration\Domain\Libs\BundleLoaders;
 
-use ZnCore\Base\Bundle\Base\BaseLoader;
-use ZnCore\Base\Arr\Helpers\ArrayHelper;
+use ZnCore\Bundle\Base\BaseLoader;
+use ZnCore\Arr\Helpers\ArrayHelper;
 
 class MigrationLoader extends BaseLoader
 {

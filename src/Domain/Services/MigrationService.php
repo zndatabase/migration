@@ -2,7 +2,7 @@
 
 namespace ZnDatabase\Migration\Domain\Services;
 
-use ZnCore\Base\Arr\Helpers\ArrayHelper;
+use ZnCore\Arr\Helpers\ArrayHelper;
 use ZnDatabase\Migration\Domain\Entities\MigrationEntity;
 use ZnDatabase\Migration\Domain\Repositories\HistoryRepository;
 use ZnDatabase\Migration\Domain\Repositories\SourceRepository;

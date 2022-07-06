@@ -6,8 +6,8 @@ use ZnCore\Contract\Common\Exceptions\InvalidConfigException;
 use ZnCore\Base\Helpers\LoadHelper;
 use ZnCore\Base\Arr\Helpers\ArrayHelper;
 use ZnCore\Base\ConfigManager\Interfaces\ConfigManagerInterface;
-use ZnCore\Base\FileSystem\Helpers\FilePathHelper;
-use ZnCore\Base\FileSystem\Helpers\FindFileHelper;
+use ZnCore\FileSystem\Helpers\FilePathHelper;
+use ZnCore\FileSystem\Helpers\FindFileHelper;
 use ZnLib\Components\Store\Helpers\StoreHelper;
 use ZnDatabase\Migration\Domain\Entities\MigrationEntity;
 

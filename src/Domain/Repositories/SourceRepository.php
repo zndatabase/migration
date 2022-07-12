@@ -2,39 +2,27 @@
 
 namespace ZnDatabase\Migration\Domain\Repositories;
 
-use ZnCore\Contract\Common\Exceptions\InvalidConfigException;
-use ZnCore\Base\Helpers\LoadHelper;
 use ZnCore\Arr\Helpers\ArrayHelper;
+use ZnCore\Base\Helpers\LoadHelper;
 use ZnCore\ConfigManager\Interfaces\ConfigManagerInterface;
+use ZnCore\Contract\Common\Exceptions\InvalidConfigException;
 use ZnCore\FileSystem\Helpers\FilePathHelper;
 use ZnCore\FileSystem\Helpers\FindFileHelper;
-use ZnLib\Components\Store\Helpers\StoreHelper;
 use ZnDatabase\Migration\Domain\Entities\MigrationEntity;
 
 class SourceRepository
 {
 
-    //use ConfigTrait;
-
     private $configManager;
 
-    public function __construct($mainConfigFile = null, ConfigManagerInterface $configManager)
+    public function __construct(/*$config = null, */ ConfigManagerInterface $configManager)
     {
-        $config = StoreHelper::load($mainConfigFile);
-//        $config = LoadHelper::loadConfig($mainConfigFile);
-        //$config = $this->loadConfig($mainConfigFile);
-        $this->config = $config['migrate'] ?? [];
-
-        $this->config['directory'] = isset($this->config['directory']) ? $this->config['directory'] : $configManager->get('ELOQUENT_MIGRATIONS');
-        /*if(empty($this->config)) {
-            throw new InvalidConfigException('Empty migrtion configuration!');
-        }*/
         $this->configManager = $configManager;
     }
 
     public function getAll()
     {
-        $directories = $this->config['directory'];
+        $directories = $this->configManager->get('ELOQUENT_MIGRATIONS');
         if (empty($directories)) {
             return [];
             throw new InvalidConfigException('Empty directories configuration for migrtion!');

@@ -20,7 +20,7 @@ class SourceRepository
 
     public function __construct($mainConfigFile = null, ConfigManagerInterface $configManager)
     {
-        $config = StoreHelper::load($_ENV['ROOT_DIRECTORY'] . '/' . $mainConfigFile);
+        $config = StoreHelper::load($mainConfigFile);
 //        $config = LoadHelper::loadConfig($mainConfigFile);
         //$config = $this->loadConfig($mainConfigFile);
         $this->config = $config['migrate'] ?? [];
